@@ -1,0 +1,26 @@
+# Prebuilt Isaac USD runtime artefacts (checksummed bundle, not Git LFS)
+/worlds/*.usd
+/worlds/assets/
+/robots/*/payloads/
+/robots/*/*.usd
+/dist/
+/cache/
+
+# Reachy baked OBJ (regenerate with tools/convert/bake_reachy_meshes.sh)
+/robots/reachy/meshes/*.obj
+/robots/reachy/meshes/*.mtl
+
+# Octomap helper binary
+/tools/octomap/.occ_xy_to_bt
+
+# Python / pytest
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
+*~
+*.swp
