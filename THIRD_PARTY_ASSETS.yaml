@@ -1,0 +1,80 @@
+# Third-party assets
+
+Inspected 2026-09-06 against wrapper freeze
+`64e8bb3c69eb7cd467e87e6a4254d7471858698a`. Unknown stays unknown.
+
+project_owned_tools:
+  licence: MIT
+  files:
+    - tools/convert/
+    - tools/octomap/
+    - tools/validate/
+    - CONVERT.md
+
+worlds:
+  source: https://github.com/CardiffUniversityComputationalRobotics/cucr_worlds
+  branch: gz_humble
+  historical_commit: unknown
+  live_tip_noted_2026-09-06: fd914ec
+  github_licence: null
+  note: >
+    Converted USD/occupancy are derived from cucr_worlds_<name> packages.
+    Nested AWS meshes (hospital replica, ServiceSim office, retail bookstore,
+    residential, warehouse) keep their upstream terms. Do not treat fd914ec as
+    the port input.
+
+  museum:
+    package: cucr_worlds_museum
+    skip_in_usd: [gazebo_people]
+    occupancy: maps/museum.png
+  hospital:
+    package: cucr_worlds_hospital
+    nested: https://github.com/aws-robotics/aws-robomaker-hospital-world
+    nested_github_licence: null
+    skip_in_usd: [ceiling, gazebo_people_robots]
+    not: Isaac_CDN_Hospital
+  office:
+    package: cucr_worlds_office
+    nested: AWS ServiceSim small-office
+    skip_in_usd: [ceiling, gazebo_people, servicebot]
+  bookstore:
+    package: cucr_worlds_bookstore
+    nested: AWS RoboMaker retail
+    skip_in_usd: [ceiling, gazebo_people]
+  house_museum:
+    package: cucr_worlds_house_museum
+    skip_in_usd: [roof_slabs_y_ge_2.08]
+    keep: CUCR_sunset_sky
+  small_house:
+    package: cucr_worlds_small_house
+    skip_in_usd: [RoomCeiling_01]
+  small_warehouse:
+    package: cucr_worlds_small_warehouse
+    skip_in_usd: [RoofB_01]
+    not: stock_HuNav_warehouse.usd
+
+robots:
+  stretch:
+    source: https://github.com/hello-robot/stretch_urdf
+    model: SE3 eoa_wrist_dw3_tool_sg3
+    licence: Clear BSD
+    licence_file: LICENSES/CLEAR_BSD_Hello_Robot.md
+    copyright: Hello Robot Inc. 2021-2024
+  reachy:
+    source: https://github.com/pollen-robotics/reachy_2023
+    extra: Zuuu mobile_base_visual.dae
+    historical_commit: unknown
+    licence: Apache-2.0
+    licence_file: LICENSES/Apache-2.0.txt
+    note: Freeze LICENSE was a broken self-symlink; Apache-2.0 text copied here.
+
+runtime_not_redistributed:
+  - NVIDIA Isaac Sim 6.0.1
+  - Isaac Kit
+  - Isaac People CDN character skins
+
+not_in_this_repository:
+  - crowd YAML
+  - robot.yaml descriptors
+  - hop launchers
+  - campaign results

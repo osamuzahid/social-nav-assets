@@ -1,0 +1,39 @@
+# Source and freeze locks for social-nav-assets (local candidate).
+
+freeze:
+  isaac_social_nav: 76f10a96b43c890618b3fd6c19575328945e1a07
+  wrapper_isaac_6_0_jazzy: 64e8bb3c69eb7cd467e87e6a4254d7471858698a
+  date: "2026-09-06"
+
+cucr_worlds:
+  url: https://github.com/CardiffUniversityComputationalRobotics/cucr_worlds
+  branch: gz_humble
+  commit: unknown
+
+stretch:
+  url: https://github.com/hello-robot/stretch_urdf
+  commit: unknown
+  note: Vendored URDF/meshes from hello-robot-stretch-urdf / CUCR stretch_ros2 lineage.
+
+reachy:
+  url: https://github.com/pollen-robotics/reachy_2023
+  commit: unknown
+  note: reachy_description (develop) plus Zuuu mobile_base_visual.dae.
+
+prebuilt_bundle:
+  name: prebuilt-assets-v0.1.0-candidate.tar.zst
+  contains:
+    - worlds/*.usd (seven CUCR campaign worlds)
+    - worlds/assets/**
+    - robots/stretch/stretch.usd
+    - robots/stretch/payloads/**
+    - robots/reachy/reachy.usd
+    - robots/reachy/payloads/**
+  world_usd_sha256:
+    museum.usd: 8ae03c73c1998abac8325182a95a3877742d3b6f79d991a4cf18fed4bff285d6
+    hospital.usd: 5d80cc2fa2c8d710db5edd5ab5568787b8a96f0b9294b04207926008f5603d51
+    office.usd: c9b5013dee8a1b26a494315a7e780947830b673eb42c40ae699e8e4be580a972
+    bookstore.usd: d097a58441be62df324a90422b60f39f88c4103da062928dd1033dce87d7efee
+    house_museum.usd: b67c182f7038b96cf68c1b6ed6b3e8780a9f23044457309c2d3dd9139abbeabb
+    small_house.usd: 0bb110a3b8bfaa4a9c7052c91a3562f60a7d4776a6ffb6ac8390fdcae2c0c7a3
+    small_warehouse.usd: f47da9c473a433c885f941aa4bee040e081dea1a95ed1d44316dc641c58b4efb
