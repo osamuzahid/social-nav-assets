@@ -1,11 +1,25 @@
 # social-nav-assets
 
+## Origin
+
+This is not a fork of one repository. It holds third-party models and converted
+worlds so they do not live inside the HuNav wrapper.
+
+| Piece | Source | Why it is here |
+|---|---|---|
+| Seven indoor worlds | [cucr_worlds](https://github.com/CardiffUniversityComputationalRobotics/cucr_worlds) `gz_humble` (historical port SHA **unknown**). Some worlds nest AWS RoboMaker / ServiceSim meshes. | Gazebo sources converted to Isaac USD + occupancy / octomap. |
+| Stretch SE3 | [hello-robot/stretch_urdf](https://github.com/hello-robot/stretch_urdf) (Clear BSD) | Kinematic lab robot. |
+| Reachy 2023 + Zuuu | [pollen-robotics/reachy_2023](https://github.com/pollen-robotics/reachy_2023) (Apache-2.0) | Kinematic lab robot. |
+| Convert / octomap / pack | This tree (MIT) | Relocatable recipes to rebuild the USD bundle. |
+
+NVIDIA Isaac Sim is runtime-only and is not redistributed. Crowd YAML and
+`robot.yaml` live in `social-nav-platform`. Record: [THIRD_PARTY_ASSETS.yaml](THIRD_PARTY_ASSETS.yaml).
+
 CUCR indoor worlds and kinematic Stretch / Reachy models for Isaac Sim 6.0.1,
 plus the conversion, composition, occupancy, and octomap tools that produce them.
 
 This repository is the assets component of the lab handover family. It does **not**
-own crowd YAML, hop launchers, `robot.yaml` descriptors, or results. NVIDIA Isaac
-Sim is runtime-only and is not redistributed.
+own crowd YAML, hop launchers, `robot.yaml` descriptors, or results.
 
 ## Layout
 
