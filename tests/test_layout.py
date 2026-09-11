@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -88,19 +89,21 @@ def test_licences_present() -> None:
 def test_tracked_text_has_no_lab_home() -> None:
     skip_suffix = {".usd", ".usda", ".png", ".bt", ".stl", ".STL", ".dae"}
     hits = []
-    for path in ROOT.rglob("*"):
-        if not path.is_file():
+    tracked = subprocess.check_output(
+        ["git", "ls-files"], cwd=ROOT, text=True
+    ).splitlines()
+    for rel in tracked:
+        if rel.startswith("tests/") or "/tests/" in rel:
             continue
-        if path.suffix in skip_suffix:
-            continue
-        if ".git" in path.parts or "tests" in path.parts:
+        path = ROOT / rel
+        if not path.is_file() or path.suffix in skip_suffix:
             continue
         try:
             text = path.read_text(encoding="utf-8")
-        except UnicodeDecodeError:
+        except (UnicodeDecodeError, OSError):
             continue
-        if "/home/osamuzahid" in text:
-            hits.append(str(path.relative_to(ROOT)))
+        if "/home/" in text:
+            hits.append(rel)
     assert hits == []
 
 
