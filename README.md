@@ -78,4 +78,4 @@ uses floor (platform planner), not `round`.
 - CUCR / AWS world sources: GitHub `license: null` on `cucr_worlds` and
   `aws-robomaker-hospital-world`. Recorded in [THIRD_PARTY_ASSETS.yaml](THIRD_PARTY_ASSETS.yaml).
 
-First cut is private. Isaac Sim, Kit, and People CDN assets are not in this repo.
+Isaac Sim, Kit, and People CDN assets are not in this repo.
